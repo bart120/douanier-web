@@ -11,6 +11,23 @@ import com.douanier.model.Contact;
 import com.douanier.utils.BddConnexion;
 
 public class ContactDAO {
+	
+	public Contact getContactByID(int id) {
+		/*Class.forName("org.postgresql.Driver");
+		
+		try(Connection connexion = DriverManager.getConnection("jdbc:postgresql://formationjava.postgres.database.azure.com:5432/jee?user=formation@formationjava&password=Inow@2021")){
+			
+		//sql...
+			PreparedStatement stat = connexion.prepareStatement("SELECT * FROM contact where id=4");
+			
+			try {
+				connexion.commit();
+			}catch (Exception e) {
+				connexion.rollback();
+			}
+			
+		}*/
+	}
 
 	public ArrayList<Contact> listerContacts() throws SQLException, ClassNotFoundException {
 		
@@ -31,6 +48,14 @@ public class ContactDAO {
 		
 		try (Connection con =  BddConnexion.getInstance().getConnexion()){
 			
+		}
+		
+		Connection con =  BddConnexion.getInstance().getConnexion();
+		try {
+			
+			
+		}catch (Exception e) {
+			con.fermer();
 		}
 		
 		
