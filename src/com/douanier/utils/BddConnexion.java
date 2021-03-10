@@ -22,7 +22,7 @@ public final class BddConnexion implements Closeable {
 		}else {
 			instance = new BddConnexion();
 			Class.forName("org.postgresql.Driver");
-			instance.connexion = DriverManager.getConnection("jdbc:postgresql://formationjava.postgres.database.azure.com:5432/jee?user=formation@formationjava&password=Inow@2021");
+			instance.connexion = DriverManager.getConnection("");
 			return instance;
 		}
 	}
@@ -49,8 +49,10 @@ public final class BddConnexion implements Closeable {
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			instance = null;	
 		}
-		instance = null;
+		
 	}
 
 }

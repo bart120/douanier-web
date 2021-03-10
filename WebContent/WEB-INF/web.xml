@@ -7,6 +7,10 @@
   		<include-prelude>/WEB-INF/includes/entete.jsp</include-prelude>
   		<include-coda>/WEB-INF/includes/pied.jsp</include-coda>
   	</jsp-property-group>
+  	<jsp-property-group>
+  		<url-pattern>*.jsp</url-pattern>
+  		<scripting-invalid>true</scripting-invalid>
+  	</jsp-property-group>
   </jsp-config>
   
   <!-- <welcome-file-list>
