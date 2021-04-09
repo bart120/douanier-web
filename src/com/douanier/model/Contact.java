@@ -10,6 +10,10 @@ public class Contact {
 	private String mail;
 	private Date dateNaissance;
 	
+	public Contact() {
+	
+	}
+	
 	public int getId() {
 		return id;
 	}

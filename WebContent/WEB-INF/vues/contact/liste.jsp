@@ -26,4 +26,24 @@
 	</tbody>
 </table>
 
+<div id="divresult"></div>
+
+<button id="btntest" type="button">Test XSS</button>
+
+<script>
+	$("#btntest").click(function(){
+		//alert('coucou');
+		$.ajax({
+			url: 'http://localhost:8080/douanier-web/contact/api',
+			type: 'POST',
+			success: function(data){
+				alert(data.prenom);
+				$("#divresult").html(data);
+			},
+			error: function(){
+				alert("erreur");
+			}
+		});
+	});
+</script>
 

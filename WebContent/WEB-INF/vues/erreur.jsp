@@ -1,0 +1,1 @@
+<h2 class="alert alert-danger">Une erreur est arrivée!</h2>

@@ -10,8 +10,19 @@ import java.util.ArrayList;
 import com.douanier.model.Contact;
 import com.douanier.utils.BddConnexion;
 
+
+/**
+ * Accès aux données Pstgresql pour un contact
+ * @author vlecl
+ * @since 9
+ * @see Contact
+ */
 public class ContactDAO {
 
+	/**
+	 * Liste les contacts de la base de données
+	 * @return Liste de contacts
+	 */
 	public static ArrayList<Contact> listerContacts() {
 		ArrayList<Contact> contacts = new ArrayList<>();
 
@@ -50,6 +61,11 @@ public class ContactDAO {
 		return null;
 	}
 	
+	/**
+	 * Récupère un contact en fonction de l'ID
+	 * @param id identifant du contact
+	 * @return le contact
+	 */
 	public static Contact getById(int id) {
 		try (BddConnexion bddcon = BddConnexion.getInstance()) {
 			try(PreparedStatement prep = bddcon.getConnexion().prepareStatement("SELECT * FROM contact WHERE id=?")){
@@ -82,6 +98,7 @@ public class ContactDAO {
 	
 	public static void enregistrer(Contact c) {
 		String req = "INSERT INTO contact (nom, prenom, mail, datenaissance) VALUES (?, ?, ?, ?)";
+		//String req = "INSERT INTO contact (nom, prenom, mail, datenaissance) VALUES ('"+ c.getNom()  +"', ?, ?, ?, ?)";
 		try (BddConnexion bddcon = BddConnexion.getInstance()) {
 			 try(PreparedStatement prep =  bddcon.getConnexion().prepareStatement(req)){
 				 prep.setString(1, c.getNom());

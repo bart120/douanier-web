@@ -16,13 +16,20 @@ public final class BddConnexion implements Closeable {
 		
 	}
 	
+	/**
+	 * Récupère l'instance de la connexion de la bdd
+	 * 
+	 * @return Une connexion ouverte sur la base
+	 * @throws ClassNotFoundException Le driver JBDC n'est pas trouvé
+	 * @throws SQLException Une erreur dans la requete SQL
+	 */
 	public static BddConnexion getInstance() throws ClassNotFoundException, SQLException {
 		if(instance != null) {
 			return instance;
 		}else {
 			instance = new BddConnexion();
 			Class.forName("org.postgresql.Driver");
-			instance.connexion = DriverManager.getConnection("");
+			instance.connexion = DriverManager.getConnection("jdbc:postgresql://formationjava.postgres.database.azure.com:5432/jee?user=formation@formationjava&password=Inow@2021");
 			return instance;
 		}
 	}
